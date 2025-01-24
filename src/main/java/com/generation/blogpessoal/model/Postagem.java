@@ -65,5 +65,4 @@ public class Postagem {
 		this.data = data;
 	}
 	
-	
 }
