@@ -18,7 +18,7 @@ import io.jsonwebtoken.security.Keys;
 @Component
 public class JwtService {
 	
-	public static final String SECRET = "7hVlt4sKQNp6YNs7SaXNbJQv5gNpauJ2lS+B/eR1anOXK37L8O/Q9ouNLlyo4IGO"; // Chave de assinatura do Token JWT. Este valor será constante, ou seja, nunca será modificado. Foi definido também o modificador static, porque o atributo deve estar associado apenas e exclusivamente a esta Classe, ou seja, é uma variável de Classe e não do Objeto.
+	public static final String SECRET = "w4f1AqkzyfjULseFZlp9EA+4RCVs2lgjefStwYXwLk0HzKCcZyyjkaUsoh2HcDBo"; // Chave de assinatura do Token JWT. Este valor será constante, ou seja, nunca será modificado. Foi definido também o modificador static, porque o atributo deve estar associado apenas e exclusivamente a esta Classe, ou seja, é uma variável de Classe e não do Objeto.
 	
 	private Key getSignKey() {
 		byte[] keyBytes = Decoders.BASE64.decode(SECRET);
