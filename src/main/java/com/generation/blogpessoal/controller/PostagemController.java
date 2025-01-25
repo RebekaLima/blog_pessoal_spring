@@ -1,0 +1,28 @@
+package com.generation.blogpessoal.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.generation.blogpessoal.model.Postagem;
+import com.generation.blogpessoal.repository.PostagemRepository;
+
+@RestController // Define que a classe receberá requisições: URL, Verbo, Corpo da requisição 
+@RequestMapping("/postagens") // Define a URL padrão do recurso (/postagens).Ao digitar a url do servidor seguida da url do Recurso (http://localhost:8080/postagens), o Spring envia a requisição para a Classe responsável pelo Recurso associado à este endereço.
+@CrossOrigin(origins = "*", allowedHeaders = "*") // Anotação responsável por permitir o reccebimento de requisições de fora do domínio ao qual pertence. Essencial para que o front-end ou mobile acesse os métodos de recurso
+public class PostagemController {
+		
+		@Autowired //Injeção de dependências que define quais Classes serão instanciadas e em quais lugares serão Injetadas quando houver necessidade
+		private PostagemRepository postagemRepository;
+		
+		@GetMapping // Indiga que o método getAll(), responderá a todas ass requisições do tipo HTTP GET enviadas ao endereço http://localhost:8080/postagens/
+		public ResponseEntity<List<Postagem>> getAll(){
+			return ResponseEntity.ok(postagemRepository.findAll());
+			
+		}
+}
